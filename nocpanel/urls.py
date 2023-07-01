@@ -19,6 +19,7 @@ from django.urls import path, include, re_path
 from django.conf.urls.static import static
 # from django.views.i18n import JavaScriptCatalog
 
+admin.site.site_header = 'Network Operation Center Panel'
 urlpatterns = [
     # path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
