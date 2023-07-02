@@ -1,5 +1,6 @@
 from django.db import models
 from django_jalali.db.models import jDateField
+from django.urls import reverse
 
 
 class Contract(models.Model):
@@ -18,8 +19,8 @@ class Contract(models.Model):
     state = models.CharField(max_length=25, choices=state_choices, default='فعال', verbose_name= 'وضعیت')
     notes = models.CharField(max_length=500, verbose_name='توضیحات',blank=True, null=True)
     
-    # def get_absolute_url(self):
-    #     return reverse('customerservice:contract-detail-list', args=[str(self.id)])
+    def get_absolute_url(self):
+        return reverse('contract:contract-detail-list', args=[str(self.id)])
     
     def __str__(self):
         return self.name

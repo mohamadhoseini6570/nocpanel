@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+
+    <div id="sm_ten" >
+        <br>
+        <br>
+        <div class="p-5" style = 'border: 1px solid rgb(176, 176, 173);
+        border-radius: 8px'>
+            <div style="text-align: center;">
+                <h4 class="p-3" style="color: brown;"> شما به این صفحه دسترسی ندارید!</h4>
+                <img src="{% static 'no_permission.png' %}" width='300' length='150'></img>
+            </div>
+        </div>
+    <!-- sm-10 -->
+    </div>
+{% endblock %}
