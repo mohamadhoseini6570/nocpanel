@@ -18,3 +18,14 @@ from django.views.generic import CreateView, UpdateView, DeleteView, FormView, V
 from django.urls import reverse_lazy, reverse
 from django.views.generic.detail import SingleObjectMixin, DetailView
 # from .forms import AgentForm, AgentForm2, ContractForm, ContractForm2, CustomerForm, CustomerSearch, WirelessForm, CloudForm, OtherSevicesForm
+
+# class ContractList(LoginRequiredMixin, PermissionRequiredMixin, generic.ListView):
+class ContractList(generic.ListView):
+    model = models.Contract 
+    template_name = 'contracts/contract_list.html'
+    paginate_by = 5
+    # login_url = '/accounts/login/'
+    # login_url = '/'
+    queryset = models.Contract.objects.all()
+    # permission_required = ('customerservice.view_contract')
+    

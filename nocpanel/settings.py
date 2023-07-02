@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-
+import os # https://stackoverflow.com/questions/14720464/django-project-base-template
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -59,7 +59,11 @@ ROOT_URLCONF = 'nocpanel.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'website-templates-default')], # https://stackoverflow.com/questions/14720464/django-project-base-template
+        
+            # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # page 77
+            # PROJECT_DIR = os.path.dirname(os.path.abspath(__file__)) # page 77
+            # 'DIRS': ['%s/templates/' % (PROJECT_DIR)], # page 77
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

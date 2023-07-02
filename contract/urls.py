@@ -7,5 +7,6 @@ from . import views
 app_name = 'contract'
 
 urlpatterns = [
-    # path('rest/', include(router.urls)),
+    path('contracts/', views.ContractList.as_view(), name='contracts-list'),
+
 ]
