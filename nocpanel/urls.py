@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 admin.site.site_header = 'Network Operation Center Panel'
 urlpatterns = [
     # path('admin/doc/', include('django.contrib.admindocs.urls')),
+    # path('',  name='index'),
     path('admin/', admin.site.urls),
     path('', include('contract.urls')),
     path('', include('customer.urls')),
@@ -31,6 +32,7 @@ urlpatterns = [
 ]
 # urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
 
-# urlpatterns += [
+urlpatterns += [
     # re_path(r'^accounts/', include('django.contrib.auth.urls')),
-# ]
+    path('accounts/', include('django.contrib.auth.urls')),
+]
