@@ -2,6 +2,7 @@ from django.db import models
 from contract.models import Contract
 from customer.models import Customer
 from agent.models import Agent
+from django.urls import reverse
 
 class Cloud(models.Model):
     sizechoices = (
@@ -27,3 +28,22 @@ class Cloud(models.Model):
 
     class Meta:
         ordering = ['id']
+
+class CloudExtraIP(models.Model):
+    ip = models.GenericIPAddressField(verbose_name='IP')
+    subnet_mask = models.PositiveSmallIntegerField(verbose_name='Subnet Mask')
+    cloud = models.ForeignKey(Cloud, on_delete=models.CASCADE, blank=True)
+
+    # def __str__(self):
+    #     return
+
+    # def get_absolute_url(self):
+    #     return reverse('customerservice:cloud-detail-list', args=[str(self.id)])
+
+    def cidr(self): 
+        return '%s / (%s)' % (self.ip,self.subnet_mask)
+    # commercialname_brand.short_description = 'Commercial Name (Brand)'
+    
+    class Meta:
+        ordering = ['id']
+    

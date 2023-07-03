@@ -3,3 +3,6 @@ from . import models
 
 class CloudAdmin(admin.ModelAdmin):
     admin.site.register(models.Cloud)
+
+class CloudExtraIPAdmin(admin.ModelAdmin):
+    admin.site.register(models.CloudExtraIP)
