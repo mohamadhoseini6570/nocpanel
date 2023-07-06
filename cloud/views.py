@@ -17,4 +17,35 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import CreateView, UpdateView, DeleteView, FormView, View #may be deleted 
 from django.urls import reverse_lazy, reverse
 from django.views.generic.detail import SingleObjectMixin, DetailView
-# from .forms import AgentForm, AgentForm2, ContractForm, ContractForm2, CustomerForm, CustomerSearch, WirelessForm, CloudForm, OtherSevicesForm
+from .forms import CloudForm
+
+# CBV cloud creation by CreateView using forms.py and bootstrap ----------------------------------------------------
+class CloudCreate(CreateView):
+    model = models.Cloud
+    form_class = CloudForm
+    template_name = 'cloud/cloud_create.html'
+
+# CBV cloud update by UpdateView----------------------------------------------------
+class CloudUpdate(UpdateView):
+    model = models.Cloud
+    form_class = CloudForm # must be a modelform no form like ContractForm
+    template_name = 'cloud/cloud_update.html'
+
+# CBV cloud deletion by DeleteView----------------------------------------------------
+class CloudDelete(DeleteView):
+    model = models.Cloud
+    template_name = 'cloud/cloud_delete.html'
+    success_url ="/clouds/"
+
+# CBV cloud list by ListView--------------------------------------------------
+class CloudList(LoginRequiredMixin, PermissionRequiredMixin ,generic.ListView):
+    model = models.Cloud 
+    template_name = 'cloud/cloud_list.html'
+    paginate_by = 5
+    # queryset = models.Cloud.objects.all()
+    permission_required = ('cloud.view_cloud')
+
+# CBV cloud detail list by DetailView--------------------------------------------------  
+class CloudDetailList(generic.DetailView):
+    model = models.Cloud
+    template_name = 'cloud/cloud_detail.html'

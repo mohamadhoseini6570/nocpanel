@@ -23,8 +23,8 @@ class Cloud(models.Model):
     def __str__(self):
         return self.size
 
-    # def get_absolute_url(self):
-    #     return reverse('customerservice:cloud-detail-list', args=[str(self.id)])
+    def get_absolute_url(self):
+        return reverse('cloud:cloud-detail-list', args=[str(self.id)])
 
     class Meta:
         ordering = ['id']
@@ -34,14 +34,14 @@ class CloudExtraIP(models.Model):
     subnet_mask = models.PositiveSmallIntegerField(verbose_name='Subnet Mask')
     cloud = models.ForeignKey(Cloud, on_delete=models.CASCADE, blank=True)
 
-    # def __str__(self):
-    #     return
+    def __str__(self):
+        return '%s/%s' % (self.ip,self.subnet_mask)
 
     # def get_absolute_url(self):
     #     return reverse('customerservice:cloud-detail-list', args=[str(self.id)])
 
-    def cidr(self): 
-        return '%s / (%s)' % (self.ip,self.subnet_mask)
+    # def cidr(self): 
+    #     return '%s / (%s)' % (self.ip,self.subnet_mask)
     # commercialname_brand.short_description = 'Commercial Name (Brand)'
     
     class Meta:

@@ -7,5 +7,14 @@ from . import views
 app_name = 'cloud'
 
 urlpatterns = [
-    # path('rest/', include(router.urls)),
+    path('cloud/create', views.CloudCreate.as_view(),
+        name='cloud-create'),
+    path('cloud/<int:pk>/update', views.CloudUpdate.as_view(),
+        name='cloud-update'),
+    path('cloud/<int:pk>/delete', views.CloudDelete.as_view(),
+        name='cloud-delete'),
+    path('clouds/', views.CloudList.as_view(),
+        name='clouds-list'),
+    path('cloud/<int:pk>', views.CloudDetailList.as_view(),
+        name='cloud-detail-list'),
 ]
