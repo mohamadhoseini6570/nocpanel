@@ -34,9 +34,9 @@ class CloudForm(forms.ModelForm):
         widget=forms.Select(attrs={'class': 'form-control', 'id': 'contract'}), label = 'قرارداد')
     customer = forms.ModelChoiceField(queryset=Customer.objects.all(), 
         widget=forms.Select(attrs={'class': 'form-control', 'id': 'customer'}), label = 'مشترک')
-    # agents = forms.ModelMultipleChoiceField(queryset=Agent.objects.all())
     agents = forms.ModelMultipleChoiceField(queryset=Agent.objects.all(),
-        widget=widgets.FilteredSelectMultiple("verbose name", is_stacked = False), label = 'نماینده')
+        widget=forms.SelectMultiple(attrs={'class' : 'filter-multi-select', 'id':'agents'}),
+        label = 'نماینده') # <SELECT><OPTION> https://github.com/andreww1011/filter-multi-select
     notes = forms.CharField(widget=forms.Textarea(attrs={'rows':3, 'class': 'form-control'})
         ,label='توضیحات', validators=[ip_test]) 
     error_css_class = 'error'

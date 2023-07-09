@@ -10,15 +10,19 @@
     {
             $('#contract').select2();
     });
+    $(document).ready(function()
+    {
+            $('#agent').select2();
+    });
 </script>
 
 <!-- newly added -->
-
-<script src="{% static 'cloud/jquery-3.2.1.min.js' %}"></script>
-<!-- <link rel="stylesheet" href="{% static 'cloud/bootstrap.min.css' %}"/> -->
-
-<link rel="stylesheet" href="{% static 'cloud/filter_multi_select.css' %}"/>
-<script src="{% static 'cloud/filter-multi-select-bundle.min.js' %}"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/> -->
+<script src="{% static 'jquery-3.2.1.min.js' %}"></script>
+<!-- <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}"/> -->
+<link rel="stylesheet" href="{% static 'filter_multi_select.css' %}"/>
+<script src="{% static 'filter-multi-select-bundle.min.js' %}"></script>
 
 <script>
     $(function () {
@@ -87,10 +91,7 @@
                             {% if form.agents.help_text %}
                                 <sup>{{form.agents.help_text}}</sup>
                             {% endif %}
-                           
-                                {{form.agents}}
-                            
-                            
+                            {{form.agents}}
                             {{form.agents.errors}}
                             <!-- {{form.media}} -->
                         </div>

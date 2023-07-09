@@ -31,8 +31,14 @@
                     <td>{{cloud.customer}}</td>
                 </tr>
                 <tr>
-                    <th scope="col">نماینده</th>
-                    <td>{{cloud.agent}}</td>
+                    <th scope="col">نمایندگان</th>
+                    <!-- <td>{{cloud.agent}}</td> -->
+                    <td>
+                        {% for agent in cloud.agents.all %}
+                            <a href = "{{agent.get_absolute_url }}">{{agent}}</a>
+                            <br>
+                        {% endfor %}
+                    </td>
                 </tr>
             </table>
         </div> 

@@ -21,7 +21,7 @@
                                         <th scope="col">توضیحات</th>   
                                         <th scope="col">قرارداد</th>   
                                         <th scope="col">مشترک</th>   
-                                        <th scope="col">نماینده</th>   
+                                        <th scope="col">نمایندگان</th>   
                                     </tr>
                             </thead>
                             <tbody>
@@ -36,7 +36,13 @@
                                             <a href = "{{x.contract.get_absolute_url }}">
                                             {{x.contract}}</a></td>    
                                         <td>{{x.customer}}</td>    
-                                        <td>{{x.agent}}</td>    
+                                        <!-- <td>{{x.agents}}</td>     -->
+                                        <td>
+                                            {% for agent in x.agents.all %}
+                                            <a href = "{{agent.get_absolute_url }}">{{agent}}</a>
+                                            <br>
+                                            {% endfor %}
+                                        </td>    
                                     </tr>
                                 {% endfor %}
                             </tbody>

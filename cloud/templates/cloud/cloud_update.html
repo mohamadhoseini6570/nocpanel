@@ -10,15 +10,26 @@
     {
             $('#contract').select2();
     });
-    $(document).ready(function()
-    {
-            $('#agent').select2();
+</script>
+
+<!-- newly added -->
+
+<script src="{% static 'cloud/jquery-3.2.1.min.js' %}"></script>
+<!-- <link rel="stylesheet" href="{% static 'cloud/bootstrap.min.css' %}"/> -->
+
+<link rel="stylesheet" href="{% static 'cloud/filter_multi_select.css' %}"/>
+<script src="{% static 'cloud/filter-multi-select-bundle.min.js' %}"></script>
+
+<script>
+    $(function () {
+      $('#agents').filterMultiSelect();
     });
 </script>
+
     <div id="sm_ten" >
         <div class="list_legend d-flex justify-content-between">
             <div>ویرایش سرور ابری:</div>
-            <div ><img src="{% static 'cloud.png'" width="40"></div>
+            <div ><img src="{% static 'cloud.png'%}" width="40"></div>
         </div>
         <div class="p-5" style = 'border: 1px solid rgb(176, 176, 173);
         border-radius: 8px'>
@@ -70,12 +81,12 @@
                         {{form.customer.errors}}
                         </div>
                         <div class="col-sm-4">
-                            {{form.agent.label_tag}}
-                            {% if form.agent.help_text %}
-                                <sup>{{form.agent.help_text}}</sup>
+                            {{form.agents.label_tag}}
+                            {% if form.agents.help_text %}
+                                <sup>{{form.agents.help_text}}</sup>
                             {% endif %}
-                            {{form.agent}}
-                            {{form.agent.errors}}
+                            {{form.agents}}
+                            {{form.agents.errors}}
                         </div>
                     <!-- row contract & customer & agent -->  
                     </div>

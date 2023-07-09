@@ -7,10 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- django admin core css -->
-    <!-- <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
-    <script src="/static/admin/js/core.js"></script> -->
-
     <link rel="stylesheet" href="{% static 'styles.css'%}">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">    <script src="node_modules/@fortawesome/fontawesome-free/css/all.css" ></script>
@@ -54,7 +50,7 @@
           <div class="menu-toggle">
           </div>
             <div class="logo logo-sm">
-              <img src = '/static/logo.png' width='160' length='70' href='www.afranet.ir'></img>
+              <img src = "{% static 'logo.png' %}" width='160' length='70' href='www.afranet.ir'></img>
             </div>
          
             <div id='container' style="background-color: #223144;">
