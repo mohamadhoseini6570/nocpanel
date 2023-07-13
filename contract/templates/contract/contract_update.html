@@ -79,6 +79,11 @@
                         </div>
                     <!-- row notes -->  
                     </div>
+                    {% if form.non_field_errors %}
+                    <div class="alert alert-dismissible alert-danger">
+                        {{form.non_field_errors}}
+                    </div>
+                    {% endif %}
                     <div class="row"  style="padding-top: 25px;">
                         <div class="col-sm-4">
                         </div>

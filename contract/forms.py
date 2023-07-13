@@ -50,3 +50,12 @@ class ContractForm2(forms.ModelForm):
     class Meta: 
         model = Contract
         fields = '__all__'
+    
+    def clean(self):
+        start_time = self.cleaned_data['start_time']
+        end_time = self.cleaned_data['end_time']
+        # if start_time and end_time:
+        if start_time > end_time: #https://stackoverflow.com/questions/31727564/validating-two-fields-at-the-same-time
+            raise ValidationError("تاریخ شروع از تاریخ پایان بزرگتر است!")
+
+        return self.cleaned_data

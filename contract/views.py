@@ -20,27 +20,33 @@ from django.views.generic.detail import SingleObjectMixin, DetailView
 from .forms import ContractForm, ContractForm2
 
 # FBV contract creation by ContractForm (forms.Form) (forms.py)---------------------------------------    
-@permission_required('contract.add_contract', raise_exception=True)
-def ContractCreate(request):
-    if request.method == 'POST':
-        form = ContractForm(request.POST)
-        if form.is_valid():
-            contract = models.Contract(name=form.cleaned_data['name'],
-                                       start_time=form.cleaned_data['start_time'],
-                                       end_time=form.cleaned_data['end_time'],
-                                       contract_time=form.cleaned_data['contract_time'],
-                                       state=form.cleaned_data['state'],
-                                       notes=form.cleaned_data['notes'])
-            contract.save()
-            # with open('./myfile', 'w') as f:
-            #     myfile = File(f)
-            #     myfile.write(str(form.cleaned_data['date_time']))
-            #     myfile.closed
-            #     f.closed
-            return HttpResponseRedirect(reverse('contract:contracts-list'))
-    else:
-        form = ContractForm(initial={'name':'ali'})
-    return render(request, 'contract/contract_create.html', {'form': form})
+# @permission_required('contract.add_contract', raise_exception=True)
+# def ContractCreate(request):
+#     if request.method == 'POST':
+#         form = ContractForm(request.POST)
+#         if form.is_valid():
+#             contract = models.Contract(name=form.cleaned_data['name'],
+#                                        start_time=form.cleaned_data['start_time'],
+#                                        end_time=form.cleaned_data['end_time'],
+#                                        contract_time=form.cleaned_data['contract_time'],
+#                                        state=form.cleaned_data['state'],
+#                                        notes=form.cleaned_data['notes'])
+#             contract.save()
+#             # with open('./myfile', 'w') as f:
+#             #     myfile = File(f)
+#             #     myfile.write(str(form.cleaned_data['date_time']))
+#             #     myfile.closed
+#             #     f.closed
+#             return HttpResponseRedirect(reverse('contract:contracts-list'))
+#     else:
+#         form = ContractForm(initial={'name':'ali'})
+#     return render(request, 'contract/contract_create.html', {'form': form})
+
+# CBV contract creation by CreateView using ----------------------------------------------------
+class ContractCreate(CreateView):
+    model = models.Contract
+    form_class = ContractForm2
+    template_name = 'contract/contract_create.html'
 
 # CBV contract update by UpdateView----------------------------------------------------
 class ContractUpdate(UpdateView):
@@ -48,6 +54,7 @@ class ContractUpdate(UpdateView):
     # form_class = ContractForm # must be a modelform no form like ContractForm
     form_class = ContractForm2 # must be a modelform like ContractForm2
     template_name = 'contract/contract_update.html'
+
     
 # CBV contract deletion by DeleteView----------------------------------------------------
 class ContractDelete(DeleteView):

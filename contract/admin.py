@@ -1,5 +1,9 @@
 from django.contrib import admin
-from . import models
+from .models import Contract
+from .forms import ContractForm2
+from django import forms
 
 class ContractAdmin(admin.ModelAdmin):
-    admin.site.register(models.Contract)
+    form = ContractForm2
+    
+admin.site.register(Contract, ContractAdmin)
