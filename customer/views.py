@@ -17,4 +17,37 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import CreateView, UpdateView, DeleteView, FormView, View #may be deleted 
 from django.urls import reverse_lazy, reverse
 from django.views.generic.detail import SingleObjectMixin, DetailView
-# from .forms import AgentForm, AgentForm2, ContractForm, ContractForm2, CustomerForm, CustomerSearch, WirelessForm, CloudForm, OtherSevicesForm
+from .forms import CustomerForm 
+# from .forms import CustomerForm, CustomerSearch, 
+
+# CBV customer creation by CreateView----------------------------------------------------
+class CustomerCreate(LoginRequiredMixin, PermissionRequiredMixin ,CreateView):
+    model = models.Customer
+    template_name = 'customer/customer_create.html'
+    form_class= CustomerForm
+    permission_required = ('customer.add_customer')
+
+# CBV customer update by UpdateView----------------------------------------------------
+class CustomerUpdate(UpdateView):
+    model = models.Customer
+    form_class= CustomerForm
+    template_name = 'customer/customer_update.html'
+    
+# CBV customer deletion by DeleteView----------------------------------------------------
+class CustomerDelete(DeleteView):
+    model = models.Customer
+    template_name = 'customer/customer_delete.html'
+    success_url ="/customers/"
+
+# CBV customers list by ListView--------------------------------------------------
+class CustomerList(LoginRequiredMixin, PermissionRequiredMixin, generic.ListView):
+    model = models.Customer #template_name = customer_list.html context = customer_list
+    template_name = 'customer/customer_list.html'
+    paginate_by = 5
+    queryset = models.Customer.objects.all()
+    permission_required = ('customer.view_customer')
+
+# CBV customer detail list by DetailView--------------------------------------------------  
+class CustomerDetailList(generic.DetailView):# min 10
+    model = models.Customer 
+    template_name = 'customer/customer_detail.html'

@@ -51,7 +51,6 @@ class ContractCreate(CreateView):
 # CBV contract update by UpdateView----------------------------------------------------
 class ContractUpdate(UpdateView):
     model = models.Contract
-    # form_class = ContractForm # must be a modelform no form like ContractForm
     form_class = ContractForm2 # must be a modelform like ContractForm2
     template_name = 'contract/contract_update.html'
 

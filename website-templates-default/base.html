@@ -31,12 +31,12 @@
                   <li class=""><a href="" class="btn-menu">داشبورد</a></li>
                   <li class=""><a href="" class="btn-menu">جستجو</a></li>
                   <li class=""><a href="{% url 'contract:contracts-list'%}" class="btn-menu">قراردادها</a></li>
-                  <li class=""><a href="" class="btn-menu">مشترکین</a></li>
-                  <li class=""><a href="" class="btn-menu">نمایندگان</a></li>
+                  <li class=""><a href="{% url 'customer:customers-list'%}" class="btn-menu">مشترکین</a></li>
+                  <li class=""><a href="{% url 'agent:agents-list'%}" class="btn-menu">نمایندگان</a></li>
                   <li class="sub-menu" ><a href="#" class="btn-menu">سرویسها</a>
                     <ul class="">
                       <li class=""><a href="" class="btn-menu">وایرلس</a></li>
-                      <li class=""><a href="" class="btn-menu">ابری</a></li>
+                      <li class=""><a href="{% url 'cloud:clouds-list'%}" class="btn-menu">ابری</a></li>
                     </ul>
                   </li>
                   <li class="sub-menu" ><a href="#" class="btn-menu">مدیریت</a>

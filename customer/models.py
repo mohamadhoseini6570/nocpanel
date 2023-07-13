@@ -1,4 +1,8 @@
 from django.db import models
+from django_jalali.db.models import jDateField
+from django.urls import reverse
+from django.core.exceptions import ValidationError
+from datetime import datetime
 
 class Customer(models.Model):
     commercialname = models.CharField(max_length=50, unique=True, verbose_name='نام تجاری')
@@ -21,8 +25,8 @@ class Customer(models.Model):
         return '%s (%s)' % (self.commercialname,self.brand)
     commercialname_brand.short_description = 'Commercial Name (Brand)'
           
-    # def get_absolute_url(self):
-    #     return reverse('customerservice:customer-detail-list', args=[str(self.id)])
+    def get_absolute_url(self):
+        return reverse('customer:customer-detail-list', args=[str(self.id)])
 
     class Meta:
         ordering = ['id']

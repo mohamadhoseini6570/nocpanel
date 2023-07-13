@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block content %}
+<div id="sm_ten" >
+    <div class="list_legend d-flex justify-content-between">
+        <div>حذف مشترک:</div>
+        <div ><img src="{% static 'customer.png'%}" width="40"></div>
+    </div>    
+    <div class="p-5" style = 'border: 1px solid rgb(176, 176, 173);
+    border-radius: 8px'>
+        <form method="post">
+            {% csrf_token %}
+            <div class="deleted_obj">
+                <p>آیا از حذف این مشترک اطمینان دارید؟</p>
+                <span id= 'deleted_item'>{{ customer }}</span>
+            </div>
+            <div class="row"  style="padding-top: 25px;">
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-4 d-flex justify-content-center">
+                    <div class="ps-3">
+                        <button type = 'submit' class="btn btn-primary">
+                            <a>بله </a>
+                        </button>
+                    </div>
+                    <div class="ps-3">
+                        <button type = 'button' class="btn btn-primary">
+                            <a href = "{% url 'customer:customer-detail-list' pk=customer.pk %}" >خیر</a>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                </div>
+            <!-- row form buttons -->
+            </div></form>
+    </div>
+<!-- sm-10 -->
+</div>
+{% endblock %}
