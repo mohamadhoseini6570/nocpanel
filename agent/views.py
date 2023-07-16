@@ -54,8 +54,6 @@ class AgentList(LoginRequiredMixin, PermissionRequiredMixin, generic.ListView):
     model = models.Agent #template_name = customer_list.html context = customer_list
     template_name = 'agent/agent_list.html'
     paginate_by = 5
-    # login_url = '/accounts/login/'
-    # login_url = '/'
     queryset = models.Agent.objects.all()
     permission_required = ('agent.view_agent')
     

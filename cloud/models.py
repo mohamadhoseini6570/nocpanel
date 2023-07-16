@@ -37,8 +37,8 @@ class CloudExtraIP(models.Model):
     def __str__(self):
         return '%s/%s' % (self.ip,self.subnet_mask)
 
-    # def get_absolute_url(self):
-    #     return reverse('customerservice:cloud-detail-list', args=[str(self.id)])
+    def get_absolute_url(self):
+        return reverse('cloud:cloud-detail-list', args=[str(self.id)])
 
     # def cidr(self): 
     #     return '%s / (%s)' % (self.ip,self.subnet_mask)

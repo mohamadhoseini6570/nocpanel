@@ -28,6 +28,7 @@ urlpatterns = [
     path('', include('customer.urls')),
     path('', include('agent.urls')),
     path('', include('cloud.urls')),
+    path('', include('dashboard.urls')),
     # path('js-catalog', JavaScriptCatalog.as_view(), name='js-catalog')
 ]
 # urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

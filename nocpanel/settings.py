@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'customer.apps.CustomerConfig',
     'agent.apps.AgentConfig',
     'cloud.apps.CloudConfig',
+    'dashboard.apps.DashboardConfig',
 ]
 
 MIDDLEWARE = [
