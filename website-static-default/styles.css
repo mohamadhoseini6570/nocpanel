@@ -225,6 +225,7 @@ header{
     width: 100%;
     box-sizing: border-box;
     border-bottom: solid 3px #223144;
+    z-index: 20000;
 }
 header .logo{
     color:#fff;
@@ -541,7 +542,7 @@ margin-top: 5px;
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 10000;
     /* height: 58px; */
     height: 54px;
 }

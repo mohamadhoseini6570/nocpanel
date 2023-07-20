@@ -30,7 +30,10 @@
                                         <th scope="row">
                                             <a href="{{x.get_absolute_url }}">
                                             {{x.size}}</a></th>
-                                        <td>{{x.ip}}</td>    
+                                        <td>{% for ip in x.ip_set.all %}
+                                            {{ip}}</br>
+                                            {% endfor %}
+                                        </td>    
                                         <td>{{x.notes}}</td>    
                                         <td>
                                             <a href = "{{x.contract.get_absolute_url }}">

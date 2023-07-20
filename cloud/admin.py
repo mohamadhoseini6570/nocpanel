@@ -9,5 +9,3 @@ class CloudAdmin(admin.ModelAdmin):
     admin.site.register(models.Cloud)
     # form = CloudForm
 
-class CloudExtraIPAdmin(admin.ModelAdmin):
-    admin.site.register(models.CloudExtraIP)
