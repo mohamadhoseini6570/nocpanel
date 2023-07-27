@@ -47,12 +47,43 @@
                         {{form.size.errors}}
                         </div>
                         <div class="col-sm-4">
-                        {{form.ip.label_tag}}
-                        {% if form.ip.help_text %}
-                            <sup>{{form.ip.help_text}}</sup>
-                        {% endif %}
-                        {{form.ip}}
-                        {{form.ip.errors}}
+                            <div>
+                                {{form.ip.label_tag}}
+                                {% if form.ip.help_text %}
+                                    <sup>{{form.ip.help_text}}</sup>
+                                {% endif %}
+                                {{form.ip}}
+                                {{form.ip.errors}}
+                            </div>
+                            <div>
+                                {{form.subnet_mask.label_tag}}
+                                {% if form.subnet_mask.help_text %}
+                                    <sup>{{form.subnet_mask.help_text}}</sup>
+                                {% endif %}
+                                {{form.subnet_mask}}
+                                {{form.subnet_mask.errors}}
+                            </div>
+                            <div><a href="">افزودن</a></div>
+
+                            <div  style="visibility: visible;">
+                                <div>
+                                    {{form.ip.label_tag}}
+                                    {% if form.ip.help_text %}
+                                        <sup>{{form.ip.help_text}}</sup>
+                                    {% endif %}
+                                    {{form.ip}}
+                                    {{form.ip.errors}}
+                                </div>
+                                <div>
+                                    {{form.subnet_mask.label_tag}}
+                                    {% if form.subnet_mask.help_text %}
+                                        <sup>{{form.subnet_mask.help_text}}</sup>
+                                    {% endif %}
+                                    {{form.subnet_mask}}
+                                    {{form.subnet_mask.errors}}
+                                </div>
+                            </div>
+
                         </div>
                         <div class="col-sm-4">
                             {{form.notes.label_tag}}
