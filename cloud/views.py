@@ -26,30 +26,30 @@ class CloudCreate(CreateView):
     form_class = CloudForm
     template_name = 'cloud/cloud_create.html'
 
-def CloudCreate(request):
-    if request.method == 'POST':
-        form = CloudForm1(request.POST)
-        if form.is_valid():
-            # t = agents.set(form.cleaned_data['agents'])
-            cloud = models.Cloud(size=form.cleaned_data['size'],
-                notes=form.cleaned_data['notes'],
-                contract=form.cleaned_data['contract'],
-                customer=form.cleaned_data['customer'],)
+# def CloudCreate(request):
+#     if request.method == 'POST':
+#         form = CloudForm1(request.POST)
+#         if form.is_valid():
+#             # t = agents.set(form.cleaned_data['agents'])
+#             cloud = models.Cloud(size=form.cleaned_data['size'],
+#                 notes=form.cleaned_data['notes'],
+#                 contract=form.cleaned_data['contract'],
+#                 customer=form.cleaned_data['customer'],)
               
-            # this_cloud_id = models.Cloud.objects.latest('id')
-            # for agent in form.cleaned_data['agents']:
-            #     models.Cloud.objects.latest.agents.add(agent)
-            cloud.save()
-            cloud.agents.set(form.cleaned_data['agents'])
-            # for x in form.cleaned_data['ips']:
-            ip = Ip(ip=form.cleaned_data['ip'],
-                subnet_mask=form.cleaned_data['subnet_mask'],
-                cloud=cloud,)
-            ip.save()
-            return HttpResponseRedirect(reverse('cloud:clouds-list'))
-    else:
-        form = CloudForm1()
-    return render(request, 'cloud/cloud_create-new.html', {'form' : form})
+#             # this_cloud_id = models.Cloud.objects.latest('id')
+#             # for agent in form.cleaned_data['agents']:
+#             #     models.Cloud.objects.latest.agents.add(agent)
+#             cloud.save()
+#             cloud.agents.set(form.cleaned_data['agents'])
+#             # for x in form.cleaned_data['ips']:
+#             ip = Ip(ip=form.cleaned_data['ip'],
+#                 subnet_mask=form.cleaned_data['subnet_mask'],
+#                 cloud=cloud,)
+#             ip.save()
+#             return HttpResponseRedirect(reverse('cloud:clouds-list'))
+#     else:
+#         form = CloudForm1()
+#     return render(request, 'cloud/cloud_create-new.html', {'form' : form})
 
 
 # CBV cloud update by UpdateView----------------------------------------------------

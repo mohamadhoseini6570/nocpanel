@@ -26,6 +26,12 @@
     });
 </script>
 
+<script>
+    $(function () {
+      $('#ips').filterMultiSelect();
+    });
+</script>
+
 
 
     <div id="sm_ten" >      
@@ -47,13 +53,14 @@
                         {{form.size.errors}}
                         </div>
                         <div class="col-sm-4">
-                        {{form.ip.label_tag}}
-                        {% if form.ip.help_text %}
-                            <sup>{{form.ip.help_text}}</sup>
+                        {{form.ips.label_tag}}
+                        {% if form.ips.help_text %}
+                            <sup>{{form.ips.help_text}}</sup>
                         {% endif %}
-                        {{form.ip}}
-                        {{form.ip.errors}}
+                        {{form.ips}}
+                        {{form.ips.errors}}
                         </div>
+                        <!-- <div><a href=""></a></div> -->
                         <div class="col-sm-4">
                             {{form.notes.label_tag}}
                             {% if form.notes.help_text %}

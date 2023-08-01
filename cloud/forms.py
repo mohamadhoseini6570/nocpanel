@@ -1,5 +1,6 @@
 from django import forms
 from .models import Contract, Customer, Agent, Cloud
+from ip.models import Ip
 from django.forms.models import inlineformset_factory, InlineForeignKeyField
 from django.core.exceptions import ValidationError
 from django.contrib.admin import widgets
@@ -27,9 +28,9 @@ class CloudForm(forms.ModelForm):
     size = forms.ChoiceField(widget=forms.Select(attrs={'class': 'form-control'}),choices= sizechoices,
         label='سایز', error_messages={'required':'پرش کن!'},
         required=True, help_text='سایز سرویس را وارد کنید')
-    ip = forms.GenericIPAddressField(widget=forms.TextInput(attrs= {'class': 'form-control'}),
-        label='ip', error_messages={'required':'پرش کن!'},
-        required=True, help_text='آدرس آی پی سرویس را وارد کنید')
+    ips = forms.ModelMultipleChoiceField(queryset=Ip.objects.all(),
+        widget=forms.SelectMultiple(attrs={'class' : 'filter-multi-select', 'id':'ips'}),
+        label = 'آی پی ها')
     contract = forms.ModelChoiceField(queryset=Contract.objects.all(),
         widget=forms.Select(attrs={'class': 'form-control', 'id': 'contract'}), label = 'قرارداد')
     customer = forms.ModelChoiceField(queryset=Customer.objects.all(), 
@@ -54,9 +55,12 @@ class CloudForm1(forms.Form):
     size = forms.ChoiceField(widget=forms.Select(attrs={'class': 'form-control'}),choices= sizechoices,
         label='سایز', error_messages={'required':'پرش کن!'},
         required=True, help_text='سایز سرویس را وارد کنید')
-    ip = forms.GenericIPAddressField(widget=forms.TextInput(attrs= {'class': 'form-control'}),
-        label='ip', error_messages={'required':'پرش کن!'},
-        required=True, help_text='آدرس آی پی سرویس را وارد کنید')
+    # ip = forms.GenericIPAddressField(widget=forms.TextInput(attrs= {'class': 'form-control'}),
+    #     label='ip', error_messages={'required':'پرش کن!'},
+    #     required=True, help_text='آدرس آی پی سرویس را وارد کنید')
+    ips = forms.ModelMultipleChoiceField(queryset=Ip.objects.all(),
+        widget=forms.SelectMultiple(attrs={'class' : 'filter-multi-select', 'id':'ips'}),
+        label = 'آی پی ها')
     subnet_mask = forms.CharField(widget=forms.TextInput(attrs= {'class': 'form-control'}),
         label='subnet mask', error_messages={'required':'پرش کن!'},
         required=True, help_text='آدرس آی پی سرویس را وارد کنید')
