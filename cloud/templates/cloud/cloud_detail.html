@@ -16,7 +16,10 @@
                 </tr>
                 <tr>
                     <th scope="col">IP</th>
-                    <td>{{cloud.ip}}</td>
+                    <td>{% for ip in cloud.ips.all %}
+                        {{ip}}</br>
+                        {% endfor %}
+                    </td>
                 </tr>
                 <tr>
                     <th scope="col">توضیحات</th>

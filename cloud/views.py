@@ -17,7 +17,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import CreateView, UpdateView, DeleteView, FormView, View #may be deleted 
 from django.urls import reverse_lazy, reverse
 from django.views.generic.detail import SingleObjectMixin, DetailView
-from .forms import CloudForm, CloudForm1
+from .forms import CloudForm, CloudForm1, CloudForm2
 from ip.models import Ip
 
 # CBV cloud creation by CreateView using forms.py and bootstrap ----------------------------------------------------

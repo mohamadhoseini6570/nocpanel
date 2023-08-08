@@ -5,8 +5,8 @@ from django.core.exceptions import ValidationError
 from datetime import datetime
 
 def notes_validator(value: str):
-    if 'تست' in value:
-        raise ValidationError("کلمه تست غیر مجاز است!")
+    if 'محمد' in value:
+        raise ValidationError("کلمه محمد غیر مجاز است!")
     else:
         return value
 
@@ -26,6 +26,8 @@ class Contract(models.Model):
     state = models.CharField(max_length=25, choices=state_choices, default='فعال', verbose_name= 'وضعیت')
     notes = models.CharField(max_length=500, verbose_name='توضیحات',
         blank=True, null=True, validators=[notes_validator])
+    # notes = models.CharField(max_length=500, verbose_name='توضیحات',
+    #     blank=True, null=True)
     
     def get_absolute_url(self):
         return reverse('contract:contract-detail-list', args=[str(self.id)])

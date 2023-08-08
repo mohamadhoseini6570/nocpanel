@@ -30,7 +30,7 @@
                                         <th scope="row">
                                             <a href="{{x.get_absolute_url }}">
                                             {{x.size}}</a></th>
-                                        <td>{% for ip in x.ip_set.all %}
+                                        <td>{% for ip in x.ips.all %}
                                             {{ip}}</br>
                                             {% endfor %}
                                         </td>    

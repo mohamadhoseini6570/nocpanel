@@ -26,6 +26,12 @@ class ContractForm(forms.Form):
     notes = forms.CharField(widget=forms.Textarea(
         attrs={'rows':3, 'class': 'form-control'}), label='توضیحات')
 
+def notes_validator(value: str):
+    if 'تست' in value:
+        raise ValidationError("کلمه تست غیر مجاز است!")
+    else:
+        return value
+
 class ContractForm2(forms.ModelForm):
     name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}),
         label='نام قرارداد') 
@@ -45,7 +51,7 @@ class ContractForm2(forms.ModelForm):
     state = forms.CharField(widget=forms.Select(choices=state_choices,
         attrs={'class': 'form-control'}), label='وضعیت')
     notes = forms.CharField(widget=forms.Textarea(
-        attrs={'rows':3, 'class': 'form-control'}), label='توضیحات')
+        attrs={'rows':3, 'class': 'form-control'}), label='توضیحات', validators=[notes_validator])
     
     class Meta: 
         model = Contract
