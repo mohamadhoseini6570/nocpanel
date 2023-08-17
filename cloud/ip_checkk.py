@@ -36,5 +36,3 @@ def all_binded_ips():
             all_binded_ips.append(ip.ip) # 1st ip is ip_object_model and 2nd ip is ip field of that
     print("Type_of_all_binded_ips: ",type(all_binded_ips))
     return all_binded_ips
-       
-

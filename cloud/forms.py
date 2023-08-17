@@ -4,7 +4,8 @@ from ip.models import Ip
 from django.forms.models import inlineformset_factory, InlineForeignKeyField
 from django.core.exceptions import ValidationError
 from django.contrib.admin import widgets
-from cloud.ip_check import all_existing_ips, all_binded_ips
+# from cloud.ip_check import all_existing_ips, all_binded_ips
+from ip.ip_check import all_existing_ips, all_binded_ips
 
 def ip_test(value):
     value = int(value)
